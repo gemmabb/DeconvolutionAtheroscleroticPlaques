@@ -15,3 +15,5 @@ To reproduce the results, you will first need acess to the Athero-Express data (
 2. Run clinical analysis with ClinicalAssociation.R.
 
 To obtain the same graphs I used in my report, you can refer to reportFigures.R.
+
+* in scadenModification you can find the script I modified to make the Scaden simulation step reproducible (changes commented with #gbb) with Scaden's original license.
