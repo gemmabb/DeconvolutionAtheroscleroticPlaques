@@ -141,7 +141,7 @@ autoplot(survfit(Surv(ep_major_t_3years, MACE)~Macrophages_tertile, data=propsRn
   annotate("text", x = 1.5, y = 1, label = paste0("p = ", round(summary(cox)$coefficients["Macrophages_tertilehigh","Pr(>|z|)"], 3)))
 
 # UNGROUPED MACRO REFERENCE ####
-folderPredictFiles <- "output/ourSC/byPatient_Scaden/scAllGenes/cellType/"
+folderPredictFiles <- "output/ourSC/byPatient_Scaden/scAllGenes/macroUngrouped/"
 list.files(folderPredictFiles, "*_predictions")
 ungroupedProps <- list()
 for(f in list.files(folderPredictFiles, "*_predictions")){
