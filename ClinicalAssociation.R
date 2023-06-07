@@ -189,6 +189,27 @@ summary(coxph(Surv(ep_major_t_3years, MACE)~foam_tertile+age+hypertension_compos
 summary(coxph(Surv(ep_major_t_3years, MACE)~res_tertile+age+hypertension_composite+dm_composite+hdl_final, data=ungroupedProps)) 
 summary(coxph(Surv(ep_major_t_3years, MACE)~inf_tertile+age+hypertension_composite+dm_composite+hdl_final, data=ungroupedProps)) 
 
+## STATINS ####
+summary(lm(`Foam Macrophages`~med_statin_derived, ungroupedProps %>% filter(!is.na(med_statin_derived))))
+confint(lm(`Foam Macrophages`~med_statin_derived, ungroupedProps %>% filter(!is.na(med_statin_derived))))
+
+summary(lm(`Inflam Macrophages`~med_statin_derived, ungroupedProps %>% filter(!is.na(med_statin_derived))))
+confint(lm(`Inflam Macrophages`~med_statin_derived, ungroupedProps %>% filter(!is.na(med_statin_derived))))
+
+summary(lm(`Res Macrophages`~med_statin_derived, ungroupedProps %>% filter(!is.na(med_statin_derived))))
+confint(lm(`Res Macrophages`~med_statin_derived, ungroupedProps %>% filter(!is.na(med_statin_derived))))
+
+## LDL ####
+summary(lm(`Foam Macrophages`~ldl_final, ungroupedProps %>% filter(!is.na(ldl_final))))
+confint(lm(`Foam Macrophages`~ldl_final, ungroupedProps %>% filter(!is.na(ldl_final))))
+
+summary(lm(`Inflam Macrophages`~ldl_final, ungroupedProps %>% filter(!is.na(ldl_final))))
+confint(lm(`Inflam Macrophages`~ldl_final, ungroupedProps %>% filter(!is.na(ldl_final))))
+
+summary(lm(`Res Macrophages`~ldl_final, ungroupedProps %>% filter(!is.na(ldl_final))))
+confint(lm(`Res Macrophages`~ldl_final, ungroupedProps %>% filter(!is.na(ldl_final))))
+
+
 # HUIZE PAN REFERENCE ####
 folderPredictFiles <- "results/scaden/ourBulk_hpSC/allCelltypes/"
 list.files(folderPredictFiles, "*_predictions")
