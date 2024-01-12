@@ -48,6 +48,7 @@ class BulkSimulator(object):
         pattern="*_counts.txt",
         unknown_celltypes=None,
         fmt="txt",
+        seed = 123 #GBB: added seed = 123, by default
     ):
         if unknown_celltypes is None:
             unknown_celltypes = ["unknown"]
@@ -61,6 +62,7 @@ class BulkSimulator(object):
         self.format = fmt
         self.datasets = []
         self.dataset_files = []
+        self.seed = seed #GBB: added seed
 
     def simulate(self):
         """simulate artificial bulk datasets"""
@@ -84,7 +86,7 @@ class BulkSimulator(object):
         logger.info("Datasets: [cyan]" + str(self.datasets) + "[/]")
 
         # Loop over datasets and simulate bulk data
-        np.random.seed(123) #gbb (set seed to always get the same simulated data)
+        np.random.seed(self.seed) #GBB: (set seed to always get the same simulated data)
         for i, dataset in enumerate(self.datasets):
             gc.collect()
             logger.info(f"[bold u]Simulating data from {dataset}")
